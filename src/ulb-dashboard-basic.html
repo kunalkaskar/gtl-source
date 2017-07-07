@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GTL</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<!-- build:css -->
+    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap-slider/dist/css/bootstrap-slider.css">
+	<link rel="stylesheet" type="text/css" href="../node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.css">
+	<link rel="stylesheet" type="text/css" href="./css/styles.css">
+	<!-- endbuild -->
+</head>
+<body>
+	<nav class="navbar navbar-default nav-dark" data-spy="affix" data-offset-top="60">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">   
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>    
+            <a class="navbar-brand" href="#"><img src="img/swacch-logo.png" class="img-responsive"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="main-nav">
+            <ul class="nav navbar-nav main-nav">
+                <li><a href="index.html">Home</a></li>
+                <li class="active"><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <!-- <li><a href="#">Login <span class="glyphicon glyphicon-log-in"></span></a></li> -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welecome ULB <span class="glyphicon glyphicon-user"></span> <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+	
+
+    <div class="container spacing">
+        
+        <div class="row">
+            <div class="col-xs-12 col-md-6 form-inline">
+                <button class="btn btn-color-red opensearch animated flipInX"><span class="glyphicon glyphicon-search"></span></button>
+                <div class="search-form animated flipOutX">
+                    <div class="input-group">
+                      <span class="input-group-btn">
+                        <button class="btn btn-color-red" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                      </span>
+                      <input type="text" class="form-control" placeholder="Search for...">
+                      
+                    </div><!-- /input-group -->
+                    <button class="btn btn-color-blue" id="adv-search">Advanced Search</button>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <button class="btn btn-color-red pull-right">Email Report</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered numeric-table table-striped table-hover" id="listing-table">
+                        <thead>
+                            <tr>
+                                <th>Sr. No.</th>
+                                <th>Name</th>
+                                <th>Address</th>
+                                <th>Type</th>
+                                <th>Ratings</th>
+                                <th>Last Rated on</th>
+                                <th>Assigned To</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    1
+                                </td>
+                                <td>
+                                    Swacch Public Toilet
+                                </td>
+                                <td>
+                                    Azadpur Metro, Delhi
+                                </td>
+                                <td class="edit-type">
+                                    <div class="type-text">
+                                        <span class="type-value">Metro</span> <span class="glyphicon glyphicon-pencil"></span>
+                                    </div>
+                                    <div class="edit-box" style="display: none;">
+                                        <div class="input-group">
+                                            <select class="form-control">
+                                                <option value="Metro">Metro</option>
+                                                <option value="Hospital">Hospital</option>
+                                                <option value="MISC">MISC</option>
+                                            </select>
+                                            <span class="input-group-btn">
+                                               <button class="btn btn-default" type="button"> <span class="glyphicon glyphicon-ok"></span>
+                                                </button>
+                                            </span>
+                                        </div><!-- /input-group -->
+                                        
+                                        
+                                    </div>
+                                </td>
+                                <td>
+                                    4.5
+                                </td>
+                                <td>
+                                    20 Jun, 2017
+                                </td>
+                                <td>
+                                    Ram Sharma
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    2
+                                </td>
+                                <td>
+                                    Swacch Public Toilet
+                                </td>
+                                <td>
+                                    Azadpur Metro, Delhi
+                                </td>
+                                <td class="edit-type">
+                                    <div class="type-text">
+                                        <span class="type-value">Metro</span> <span class="glyphicon glyphicon-pencil"></span>
+                                    </div>
+                                    <div class="edit-box" style="display: none;">
+                                        <div class="input-group">
+                                            <select class="form-control">
+                                                <option value="Metro">Metro</option>
+                                                <option value="Hospital">Hospital</option>
+                                                <option value="MISC">MISC</option>
+                                            </select>
+                                            <span class="input-group-btn">
+                                               <button class="btn btn-default" type="button"> <span class="glyphicon glyphicon-ok"></span>
+                                                </button>
+                                            </span>
+                                        </div><!-- /input-group -->
+                                        
+                                        
+                                    </div>
+                                </td>
+                                <td>
+                                    4.5
+                                </td>
+                                <td>
+                                    20 Jun, 2017
+                                </td>
+                                <td>
+                                    Ram Sharma
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    3
+                                </td>
+                                <td>
+                                    Swacch Public Toilet
+                                </td>
+                                <td>
+                                    Azadpur Metro, Delhi
+                                </td>
+                                <td class="edit-type">
+                                    <div class="type-text">
+                                        <span class="type-value">Metro</span> <span class="glyphicon glyphicon-pencil"></span>
+                                    </div>
+                                    <div class="edit-box" style="display: none;">
+                                        <div class="input-group">
+                                            <select class="form-control">
+                                                <option value="Metro">Metro</option>
+                                                <option value="Hospital">Hospital</option>
+                                                <option value="MISC">MISC</option>
+                                            </select>
+                                            <span class="input-group-btn">
+                                               <button class="btn btn-default" type="button"> <span class="glyphicon glyphicon-ok"></span>
+                                                </button>
+                                            </span>
+                                        </div><!-- /input-group -->
+                                        
+                                        
+                                    </div>
+                                </td>
+                                <td>
+                                    4.5
+                                </td>
+                                <td>
+                                    20 Jun, 2017
+                                </td>
+                                <td>
+                                    Ram Sharma
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    4
+                                </td>
+                                <td>
+                                    Swacch Public Toilet
+                                </td>
+                                <td>
+                                    Azadpur Metro, Delhi
+                                </td>
+                                <td class="edit-type">
+                                    <div class="type-text">
+                                        <span class="type-value">Metro</span> <span class="glyphicon glyphicon-pencil"></span>
+                                    </div>
+                                    <div class="edit-box" style="display: none;">
+                                        <div class="input-group">
+                                            <select class="form-control">
+                                                <option value="Metro">Metro</option>
+                                                <option value="Hospital">Hospital</option>
+                                                <option value="MISC">MISC</option>
+                                            </select>
+                                            <span class="input-group-btn">
+                                               <button class="btn btn-default" type="button"> <span class="glyphicon glyphicon-ok"></span>
+                                                </button>
+                                            </span>
+                                        </div><!-- /input-group -->
+                                        
+                                        
+                                    </div>
+                                </td>
+                                <td>
+                                    4.5
+                                </td>
+                                <td>
+                                    20 Jun, 2017
+                                </td>
+                                <td>
+                                    Ram Sharma
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    5
+                                </td>
+                                <td>
+                                    Swacch Public Toilet
+                                </td>
+                                <td>
+                                    Azadpur Metro, Delhi
+                                </td>
+                                <td class="edit-type">
+                                    <div class="type-text">
+                                        <span class="type-value">Metro</span> <span class="glyphicon glyphicon-pencil"></span>
+                                    </div>
+                                    <div class="edit-box" style="display: none;">
+                                        <div class="input-group">
+                                            <select class="form-control">
+                                                <option value="Metro">Metro</option>
+                                                <option value="Hospital">Hospital</option>
+                                                <option value="MISC">MISC</option>
+                                            </select>
+                                            <span class="input-group-btn">
+                                               <button class="btn btn-default" type="button"> <span class="glyphicon glyphicon-ok"></span>
+                                                </button>
+                                            </span>
+                                        </div><!-- /input-group -->
+                                        
+                                        
+                                    </div>
+                                </td>
+                                <td>
+                                    4.5
+                                </td>
+                                <td>
+                                    20 Jun, 2017
+                                </td>
+                                <td>
+                                    Ram Sharma
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    6
+                                </td>
+                                <td>
+                                    Swacch Public Toilet
+                                </td>
+                                <td>
+                                    Azadpur Metro, Delhi
+                                </td>
+                                <td class="edit-type">
+                                    <div class="type-text">
+                                        <span class="type-value">Metro</span> <span class="glyphicon glyphicon-pencil"></span>
+                                    </div>
+                                    <div class="edit-box" style="display: none;">
+                                        <div class="input-group">
+                                            <select class="form-control">
+                                                <option value="Metro">Metro</option>
+                                                <option value="Hospital">Hospital</option>
+                                                <option value="MISC">MISC</option>
+                                            </select>
+                                            <span class="input-group-btn">
+                                               <button class="btn btn-default" type="button"> <span class="glyphicon glyphicon-ok"></span>
+                                                </button>
+                                            </span>
+                                        </div><!-- /input-group -->
+                                        
+                                        
+                                    </div>
+                                </td>
+                                <td>
+                                    4.5
+                                </td>
+                                <td>
+                                    20 Jun, 2017
+                                </td>
+                                <td>
+                                    Ram Sharma
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    7
+                                </td>
+                                <td>
+                                    Swacch Public Toilet
+                                </td>
+                                <td>
+                                    Azadpur Metro, Delhi
+                                </td>
+                                <td class="edit-type">
+                                    <div class="type-text">
+                                        <span class="type-value">Metro</span> <span class="glyphicon glyphicon-pencil"></span>
+                                    </div>
+                                    <div class="edit-box" style="display: none;">
+                                        <div class="input-group">
+                                            <select class="form-control">
+                                                <option value="Metro">Metro</option>
+                                                <option value="Hospital">Hospital</option>
+                                                <option value="MISC">MISC</option>
+                                            </select>
+                                            <span class="input-group-btn">
+                                               <button class="btn btn-default" type="button"> <span class="glyphicon glyphicon-ok"></span>
+                                                </button>
+                                            </span>
+                                        </div><!-- /input-group -->
+                                        
+                                        
+                                    </div>
+                                </td>
+                                <td>
+                                    4.5
+                                </td>
+                                <td>
+                                    20 Jun, 2017
+                                </td>
+                                <td>
+                                    Ram Sharma
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    8
+                                </td>
+                                <td>
+                                    Swacch Public Toilet
+                                </td>
+                                <td>
+                                    Azadpur Metro, Delhi
+                                </td>
+                                <td class="edit-type">
+                                    <div class="type-text">
+                                        <span class="type-value">Metro</span> <span class="glyphicon glyphicon-pencil"></span>
+                                    </div>
+                                    <div class="edit-box" style="display: none;">
+                                        <div class="input-group">
+                                            <select class="form-control">
+                                                <option value="Metro">Metro</option>
+                                                <option value="Hospital">Hospital</option>
+                                                <option value="MISC">MISC</option>
+                                            </select>
+                                            <span class="input-group-btn">
+                                               <button class="btn btn-default" type="button"> <span class="glyphicon glyphicon-ok"></span>
+                                                </button>
+                                            </span>
+                                        </div><!-- /input-group -->
+                                        
+                                        
+                                    </div>
+                                </td>
+                                <td>
+                                    4.5
+                                </td>
+                                <td>
+                                    20 Jun, 2017
+                                </td>
+                                <td>
+                                    Ram Sharma
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    9
+                                </td>
+                                <td>
+                                    Swacch Public Toilet
+                                </td>
+                                <td>
+                                    Azadpur Metro, Delhi
+                                </td>
+                                <td class="edit-type">
+                                    <div class="type-text">
+                                        <span class="type-value">Metro</span> <span class="glyphicon glyphicon-pencil"></span>
+                                    </div>
+                                    <div class="edit-box" style="display: none;">
+                                        <div class="input-group">
+                                            <select class="form-control">
+                                                <option value="Metro">Metro</option>
+                                                <option value="Hospital">Hospital</option>
+                                                <option value="MISC">MISC</option>
+                                            </select>
+                                            <span class="input-group-btn">
+                                               <button class="btn btn-default" type="button"> <span class="glyphicon glyphicon-ok"></span>
+                                                </button>
+                                            </span>
+                                        </div><!-- /input-group -->
+                                        
+                                        
+                                    </div>
+                                </td>
+                                <td>
+                                    4.5
+                                </td>
+                                <td>
+                                    20 Jun, 2017
+                                </td>
+                                <td>
+                                    Ram Sharma
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    10
+                                </td>
+                                <td>
+                                    Swacch Public Toilet
+                                </td>
+                                <td>
+                                    Azadpur Metro, Delhi
+                                </td>
+                                <td class="edit-type">
+                                    <div class="type-text">
+                                        <span class="type-value">Metro</span> <span class="glyphicon glyphicon-pencil"></span>
+                                    </div>
+                                    <div class="edit-box" style="display: none;">
+                                        <div class="input-group">
+                                            <select class="form-control">
+                                                <option value="Metro">Metro</option>
+                                                <option value="Hospital">Hospital</option>
+                                                <option value="MISC">MISC</option>
+                                            </select>
+                                            <span class="input-group-btn">
+                                               <button class="btn btn-default" type="button"> <span class="glyphicon glyphicon-ok"></span>
+                                                </button>
+                                            </span>
+                                        </div><!-- /input-group -->
+                                        
+                                        
+                                    </div>
+                                </td>
+                                <td>
+                                    4.5
+                                </td>
+                                <td>
+                                    20 Jun, 2017
+                                </td>
+                                <td>
+                                    Ram Sharma
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>    
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <nav aria-label="" class="text-center">
+                    <ul class="pagination pagination-lg pagination-base">
+                        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">2 <span class="sr-only">2</span></a></li>
+                        <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="container" id="filters">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="close"><span class="glyphicon glyphicon-remove"></span></div>
+                <div class="filters">
+                    <h3>Advanced Search</h3>
+                    <form>
+                        <div class="form-group">
+                            <label>Ratings</label>
+                            <div>
+                                <input type="text" name="ratings" class="form-control rangeSlider" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="[0,5]">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Filtr by Ward</label>
+                            <select class="form-control">
+                                <option>Select Ward</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Filtr by Staff</label>
+                            <select class="form-control">
+                                <option>Select Staff</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Filtr by Type</label>
+                            <select class="form-control">
+                                <option>Select Type</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Filtr by Period</label>
+                            <select class="form-control">
+                                <option>Select Period</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>From Date</label>
+                            <input type="text" name="" class="form-control datepicker">
+                        </div>
+                        <div class="form-group">
+                            <label>To Date</label>
+                            <input type="text" name="" class="form-control datepicker">
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12 col-md-6">
+                                <button class="btn btn-color-blue btn-block">Search</button>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <button class="btn btn-color-red btn-block">Clear</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <!-- <div class="row">
+                <div class="col-xs-12 col-md-2 col-md-offset-1">
+                    <img src="img/swacch-logo.png" height="66">
+                </div>
+                <div class="col-xs-12 col-md-2  col-md-offset-1 text-center">
+                    <img src="img/ministry-logo.png" height="70">
+                </div>
+                <div class="col-xs-12 col-md-6 text-right">
+                    <p class="footer-text">&copy; Copyright 2017</p>
+                </div>
+            </div> -->
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <p class="footer-text">&copy; Copyright 2017</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+	<!-- build:js -->
+	<script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../node_modules/bootstrap-slider/dist/bootstrap-slider.js"></script>
+	<script type="text/javascript" src="../node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+
+	<script type="text/javascript" src="../node_modules/highcharts/highcharts.js"></script>
+	<script type="text/javascript" src="../node_modules/highcharts/modules/map.js"></script>
+	<!-- endbuild-->
+	
+	
+
+	<script type="text/javascript">
+
+$(document).ready(function() {
+    $('.opensearch').on('click', function() {
+        $('.search-form').addClass('animated flipInX');
+        $(this).removeClass('flipInX').addClass('animated flipOutX');
+    });
+
+    var rangeSlider = $("input.rangeSlider").bootstrapSlider();
+
+    $("#adv-search").on('click', function() {
+        $("#filters").addClass('open');
+    });
+    $(".close").on('click', function() {
+        $("#filters").removeClass('open');
+    });
+
+    $('.datepicker').datepicker();
+
+    $('#listing-table tr').each(function() {
+        $(this).on('click', function() {
+            window.location.href = 'toilet-details-ulb.html';
+        })
+    });
+
+    $('#listing-table tr .edit-type').each(function() {
+        $(this).on('click', function(e) {
+            e.stopPropagation();
+            $(this).find('.edit-box').show();
+            $(this).find('.type-text').hide();
+            
+        })
+    });
+
+    $('#listing-table tr .edit-type .btn').each(function() {
+        $(this).on('click', function(e) {
+            e.stopPropagation();
+            var val = $(this).parents('.edit-box').find('.form-control').val();
+            $(this).parents().find('.edit-box').hide();
+            $(this).parents('.edit-type').find('.type-value').text(val);
+            $(this).parents().find('.type-text').show();
+            
+        })
+    })
+});
+
+	</script>
+
+</body>
+</html>

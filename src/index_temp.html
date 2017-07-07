@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GTL</title>
+	<!-- build:css -->
+	<link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./css/styles.css">
+	<!-- endbuild -->
+</head>
+<body>
+	<nav class="navbar navbar-default nav-primary">
+	  <div class="container">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">	      
+	      <a class="navbar-brand" href="#">Logo</a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav nav-pills navbar-right">
+	        <li class="active"><a href="#">Home</a></li>
+	        <li><a href="#">Dashboard</a></li>
+	        <li><a href="#">Login</a></li>
+	        <!-- <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#">Action</a></li>
+	            <li><a href="#">Another action</a></li>
+	            <li><a href="#">Something else here</a></li>
+	            <li role="separator" class="divider"></li>
+	            <li><a href="#">Separated link</a></li>
+	          </ul>
+	        </li> -->
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	<div class="container">
+		<div class="row">
+			<div id="map" class="col-xs-12 col-md-7">
+				
+			</div>
+			<div class="col-xs-12 col-md-5">
+				<div class="panel panel-default color1">
+				  <div class="panel-body">
+				    <div class="number">1000</div>
+				    <h2>Lorem ipsum</h2>
+			    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			    	tempor incididunt ut labore et dolore magna aliqua. 
+				  </div>
+				</div>
+				<div class="panel panel-default color2">
+				  <div class="panel-body">
+				    <div class="number">1000</div>
+				    <h2>Lorem ipsum</h2>
+			    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			    	tempor incididunt ut labore et dolore magna aliqua. 
+				  </div>
+				</div>
+				<div class="panel panel-default color3">
+				  <div class="panel-body">
+				    <div class="number">1000</div>
+				    <h2>Lorem ipsum</h2>
+			    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			    	tempor incididunt ut labore et dolore magna aliqua. 
+				  </div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<button class="btn btn-basic"><span class="glyphicon glyphicon-info-sign"></span> How to Review?</button>
+
+				<button class="btn btn-basic"><span class="glyphicon glyphicon-plus"></span> Add Toilet</button>
+
+				<button class="btn btn-basic"><span class="glyphicon glyphicon-user"></span> Manage Staff</button>
+			</div>
+		</div>
+		<br><br>
+		<div class="row">
+			<div class="col-xs-12">
+				<table class="table table-bordered numeric-table table-striped">
+					<thead>
+						<tr>
+							<th></th>
+							<th></th>
+							<th colspan="4" class="text-center">Number of Ratings</th>
+						</tr>
+						<tr>
+							<th>Ratings</th>
+							<th># of Toilets (till date)</th>
+							<th>Yesterday</th>
+							<th>Last Week</th>
+							<th>Last 2 Week</th>
+							<th>Last 1 Month</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>
+								5 Stars
+							</th>
+							<td>
+								500
+							</td>
+							<td>
+								10
+							</td>
+							<td>
+								50
+							</td>
+							<td>
+								200
+							</td>
+							<td>
+								400
+							</td>
+						</tr>
+						<tr>
+							<th>
+								4 Stars
+							</th>
+							<td>
+								500
+							</td>
+							<td>
+								10
+							</td>
+							<td>
+								50
+							</td>
+							<td>
+								200
+							</td>
+							<td>
+								400
+							</td>
+						</tr>
+						<tr>
+							<th>
+								3 Stars
+							</th>
+							<td>
+								500
+							</td>
+							<td>
+								10
+							</td>
+							<td>
+								50
+							</td>
+							<td>
+								200
+							</td>
+							<td>
+								400
+							</td>
+						</tr>
+						<tr>
+							<th>
+								2 Stars
+							</th>
+							<td>
+								500
+							</td>
+							<td>
+								10
+							</td>
+							<td>
+								50
+							</td>
+							<td>
+								200
+							</td>
+							<td>
+								400
+							</td>
+						</tr>
+						<tr>
+							<th>
+								1 Stars
+							</th>
+							<td>
+								500
+							</td>
+							<td>
+								10
+							</td>
+							<td>
+								50
+							</td>
+							<td>
+								200
+							</td>
+							<td>
+								400
+							</td>
+						</tr>
+						<tr>
+							<th>
+								No Feedback
+							</th>
+							<td>
+								500
+							</td>
+							<td>
+								10
+							</td>
+							<td>
+								50
+							</td>
+							<td>
+								200
+							</td>
+							<td>
+								400
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<table class="table table-bordered numeric-table table-striped">
+					<thead>
+						<tr>
+							<th>Sr. No.</th>
+							<th>Name</th>
+							<th>Address</th>
+							<th>Type</th>
+							<th>Ratings</th>
+							<th>Last Rated on</th>
+							<th>Assigned To</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								1
+							</td>
+							<td>
+								Swacch Public Toilet
+							</td>
+							<td>
+								Azadpur Metro, Delhi
+							</td>
+							<td>
+								Metro
+							</td>
+							<td>
+								4.5
+							</td>
+							<td>
+								20 Jun, 2017
+							</td>
+							<td>
+								Ram Sharma
+							</td>
+						</tr>
+						<tr>
+							<td>
+								2
+							</td>
+							<td>
+								Swacch Public Toilet
+							</td>
+							<td>
+								Azadpur Metro, Delhi
+							</td>
+							<td>
+								Metro
+							</td>
+							<td>
+								4.5
+							</td>
+							<td>
+								20 Jun, 2017
+							</td>
+							<td>
+								Ram Sharma
+							</td>
+						</tr>
+						<tr>
+							<td>
+								3
+							</td>
+							<td>
+								Swacch Public Toilet
+							</td>
+							<td>
+								Azadpur Metro, Delhi
+							</td>
+							<td>
+								Metro
+							</td>
+							<td>
+								4.5
+							</td>
+							<td>
+								20 Jun, 2017
+							</td>
+							<td>
+								Ram Sharma
+							</td>
+						</tr>
+						<tr>
+							<td>
+								4
+							</td>
+							<td>
+								Swacch Public Toilet
+							</td>
+							<td>
+								Azadpur Metro, Delhi
+							</td>
+							<td>
+								Metro
+							</td>
+							<td>
+								4.5
+							</td>
+							<td>
+								20 Jun, 2017
+							</td>
+							<td>
+								Ram Sharma
+							</td>
+						</tr>
+						<tr>
+							<td>
+								5
+							</td>
+							<td>
+								Swacch Public Toilet
+							</td>
+							<td>
+								Azadpur Metro, Delhi
+							</td>
+							<td>
+								Metro
+							</td>
+							<td>
+								4.5
+							</td>
+							<td>
+								20 Jun, 2017
+							</td>
+							<td>
+								Ram Sharma
+							</td>
+						</tr>
+						<tr>
+							<td>
+								6
+							</td>
+							<td>
+								Swacch Public Toilet
+							</td>
+							<td>
+								Azadpur Metro, Delhi
+							</td>
+							<td>
+								Metro
+							</td>
+							<td>
+								4.5
+							</td>
+							<td>
+								20 Jun, 2017
+							</td>
+							<td>
+								Ram Sharma
+							</td>
+						</tr>
+						<tr>
+							<td>
+								7
+							</td>
+							<td>
+								Swacch Public Toilet
+							</td>
+							<td>
+								Azadpur Metro, Delhi
+							</td>
+							<td>
+								Metro
+							</td>
+							<td>
+								4.5
+							</td>
+							<td>
+								20 Jun, 2017
+							</td>
+							<td>
+								Ram Sharma
+							</td>
+						</tr>
+						<tr>
+							<td>
+								8
+							</td>
+							<td>
+								Swacch Public Toilet
+							</td>
+							<td>
+								Azadpur Metro, Delhi
+							</td>
+							<td>
+								Metro
+							</td>
+							<td>
+								4.5
+							</td>
+							<td>
+								20 Jun, 2017
+							</td>
+							<td>
+								Ram Sharma
+							</td>
+						</tr>
+						<tr>
+							<td>
+								9
+							</td>
+							<td>
+								Swacch Public Toilet
+							</td>
+							<td>
+								Azadpur Metro, Delhi
+							</td>
+							<td>
+								Metro
+							</td>
+							<td>
+								4.5
+							</td>
+							<td>
+								20 Jun, 2017
+							</td>
+							<td>
+								Ram Sharma
+							</td>
+						</tr>
+						<tr>
+							<td>
+								10
+							</td>
+							<td>
+								Swacch Public Toilet
+							</td>
+							<td>
+								Azadpur Metro, Delhi
+							</td>
+							<td>
+								Metro
+							</td>
+							<td>
+								4.5
+							</td>
+							<td>
+								20 Jun, 2017
+							</td>
+							<td>
+								Ram Sharma
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-4">
+				<div class="panel panel-default color1">
+				  <div class="panel-body">
+				    <div class="number">1000</div>
+				    <h2>Lorem ipsum</h2>
+			    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			    	tempor incididunt ut labore et dolore magna aliqua. 
+				  </div>
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<div class="panel panel-default color2">
+				  <div class="panel-body">
+				    <div class="number">1000</div>
+				    <h2>Lorem ipsum</h2>
+			    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			    	tempor incididunt ut labore et dolore magna aliqua. 
+				  </div>
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<div class="panel panel-default color3">
+				  <div class="panel-body">
+				    <div class="number">1000</div>
+				    <h2>Lorem ipsum</h2>
+			    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			    	tempor incididunt ut labore et dolore magna aliqua. 
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- build:js -->
+	<script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+	<script type="text/javascript" src="../node_modules/highcharts/highcharts.js"></script>
+	<script type="text/javascript" src="../node_modules/highcharts/modules/map.js"></script>
+	<!-- endbuild-->
+	<script src="https://code.highcharts.com/maps/modules/data.js"></script>
+	<script src="https://code.highcharts.com/maps/modules/drilldown.js"></script>
+	</script>
+	
+	<script src="https://code.highcharts.com/mapdata/countries/in/custom/in-all-disputed.js"></script> 
+
+	<script type="text/javascript">
+		// Prepare demo data
+// Data is joined to map using value of 'hc-key' property by default.
+// See API docs for 'joinBy' for more info on linking data and map.
+/*var data = [
+    ['in-an', 0],
+    ['in-wb', 1],
+    ['in-ld', 2],
+    ['in-5390', 3],
+    ['in-py', 4],
+    ['in-3464', 5],
+    ['in-mz', 6],
+    ['in-as', 7],
+    ['in-pb', 8],
+    ['in-ga', 9],
+    ['in-2984', 10],
+    ['in-jk', 11],
+    ['in-hr', 12],
+    ['in-nl', 13],
+    ['in-mn', 14],
+    ['in-tr', 15],
+    ['in-mp', 16],
+    ['in-ct', 17],
+    ['in-ar', 18],
+    ['in-ml', 19],
+    ['in-kl', 20],
+    ['in-tn', 21],
+    ['in-ap', 22],
+    ['in-ka', 23],
+    ['in-mh', 24],
+    ['in-or', 25],
+    ['in-dn', 26],
+    ['in-dl', 27],
+    ['in-hp', 28],
+    ['in-rj', 29],
+    ['in-up', 30],
+    ['in-ut', 31],
+    ['in-jh', 32],
+    ['in-ch', 33],
+    ['in-br', 34],
+    ['in-sk', 35]
+];*/
+
+/*
+TODO:
+- Check data labels after drilling. Label rank? New positions?
+- Not US Mainland text
+- Separators
+*/
+
+var data = Highcharts.geojson(Highcharts.maps['countries/in/custom/in-all-disputed']),
+    // Some responsiveness
+    small = $('#map').width() < 400;
+
+// Set drilldown pointers
+$.each(data, function (i) {
+    this.drilldown = this.properties['hc-key'];
+    this.value = i; // Non-random bogus data
+});
+
+// Instanciate the map
+Highcharts.mapChart('map', {
+    chart: {
+    },
+    colors : ['#9900CC'],
+    title: {
+        text: ''
+    },
+
+    subtitle: {
+        text: 'India',
+        floating: true,
+        align: 'right',
+        y: 50,
+        style: {
+            fontSize: '16px'
+        }
+    },
+
+    mapNavigation: {
+        enabled: true,
+        buttonOptions: {
+            verticalAlign: 'bottom',
+            align: 'right'
+        }
+    },
+
+    plotOptions: {
+        map: {
+            states: {
+                hover: {
+                    color: '#29A300'
+                }
+            }
+        }
+    },
+
+    series: [{
+        name: 'Delhi',
+                        data: [{
+            name: "Delhi",
+            path: "M982,-367L977,-391,948,-471,945,-486,945,-505,937,-530,924,-560,768,-700,755,-749,727,-786,748,-834,718,-909,627,-875,616,-875,590,-883,565,-894,476,-920,458,-920,442,-902,431,-886,395,-855,332,-859,282,-842,235,-815,215,-796,202,-770,198,-747,197,-718,203,-604,200,-570,203,-555,216,-531,223,-505,206,-480,173,-449,166,-430,161,-386,150,-373,132,-368,97,-363,76,-354,66,-342,47,-304,6,-263,0,-244,3,-228,18,-209,47,-181,58,-168,66,-155,69,-142,71,-133,76,-112,144,-131,252,-141,281,-146,295,-152,297,-180,308,-197,319,-202,332,-200,463,-133,473,-121,479,-109,500,-46,508,-31,521,-15,547,4,592,30,623,51,703,80,765,69,784,58,794,48,795,37,790,24,779,8,766,-4,760,-18,766,-34,797,-63,827,-83,852,-92,965,-113,918,-209,906,-223,913,-255,921,-270,932,-283,961,-310,973,-321,981,-334,984,-349,982,-367"
+        }],
+                        dataLabels: {
+                            enabled: false,
+                            format: '{point.name}'
+                        }
+    }],
+
+    drilldown: {
+        activeDataLabelStyle: {
+            color: '#FFFFFF',
+            textDecoration: 'none',
+            textOutline: '1px #000000'
+        },
+        drillUpButton: {
+            relativeTo: 'spacingBox',
+            position: {
+                x: 0,
+                y: 60
+            }
+        }
+    },
+    credits : {
+    	enabled:false
+    }
+});
+
+	</script>
+</body>
+</html>

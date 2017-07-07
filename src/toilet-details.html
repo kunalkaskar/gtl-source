@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GTL</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<!-- build:css -->
+    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap-slider/dist/css/bootstrap-slider.css">
+	<link rel="stylesheet" type="text/css" href="../node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.css">
+	<link rel="stylesheet" type="text/css" href="./css/styles.css">
+	<!-- endbuild -->
+</head>
+<body>
+	<nav class="navbar navbar-default nav-dark" data-spy="affix" data-offset-top="60">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">   
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>    
+            <a class="navbar-brand" href="#"><img src="img/swacch-logo.png" class="img-responsive"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="main-nav">
+            <ul class="nav navbar-nav main-nav">
+                <li><a href="index.html">Home</a></li>
+                <li class="active"><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="ulb-dashboard.html">Login <span class="glyphicon glyphicon-log-in"></span></a></li>
+            <!-- <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li> -->
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container toilet-details">
+        <a class="btn btn-color-blue back-button" href="dashboard.html" role="button"><span class="glyphicon glyphicon-chevron-left"></span> Back to List</a>
+        <div class="hero-img">
+            
+
+            <div class="details">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <div class="info">
+                            <img src="img/no-img.png" class="img-circle">
+                            <h2>Swacch Public Toilet</h2>
+                            <p>Azadpur Metro, Delhi</p>
+                            <p>Metro</p>
+                            <p class="ratings"> 4.5 <span class="glyphicon glyphicon-star"></span></p>
+                            <p> Last Rated on 20 Jun, 2017</p>
+                            <p>433 reviews</p>
+                            <p>Ram Sharma</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <div id="pie-chart">
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="row spacing">
+            <div class="col-xs-12 col-md-6">
+                <h3>User Reviews</h3>
+                <div class="list-group review-list">
+                  <a href="#" class="list-group-item">
+                    <h4 class="list-group-item-heading"><img src="img/no-img.png" class="img-circle" width="50"> Google User</h4>
+                    <p class="list-group-item-text">Nice place should come in attention of people so that it is promoted</p>
+                    <div class="ratings">
+                        4.5 <span class="glyphicon glyphicon-star"></span>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <h4 class="list-group-item-heading"><img src="img/no-img.png" class="img-circle" width="50"> Google User</h4>
+                    <p class="list-group-item-text">Nice place should come in attention of people so that it is promoted</p>
+                    <div class="ratings">
+                        4.5 <span class="glyphicon glyphicon-star"></span>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <h4 class="list-group-item-heading"><img src="img/no-img.png" class="img-circle" width="50"> Google User</h4>
+                    <p class="list-group-item-text">Nice place should come in attention of people so that it is promoted</p>
+                    <div class="ratings">
+                        4.5 <span class="glyphicon glyphicon-star"></span>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <h4 class="list-group-item-heading"><img src="img/no-img.png" class="img-circle" width="50"> Google User</h4>
+                    <p class="list-group-item-text">Nice place should come in attention of people so that it is promoted</p>
+                    <div class="ratings">
+                        4.5 <span class="glyphicon glyphicon-star"></span>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <h4 class="list-group-item-heading"><img src="img/no-img.png" class="img-circle" width="50"> Google User</h4>
+                    <p class="list-group-item-text">Nice place should come in attention of people so that it is promoted</p>
+                    <div class="ratings">
+                        4.5 <span class="glyphicon glyphicon-star"></span>
+                    </div>
+                  </a>
+                </div>
+                <div class="btn-group" role="group" aria-label="...">
+                  <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span></button>
+                  <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-chevron-right"></span></button>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <!-- <div class="row">
+                <div class="col-xs-12 col-md-2 col-md-offset-1">
+                    <img src="img/swacch-logo.png" height="66">
+                </div>
+                <div class="col-xs-12 col-md-2  col-md-offset-1 text-center">
+                    <img src="img/ministry-logo.png" height="70">
+                </div>
+                <div class="col-xs-12 col-md-6 text-right">
+                    <p class="footer-text">&copy; Copyright 2017</p>
+                </div>
+            </div> -->
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <p class="footer-text">&copy; Copyright 2017</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+	<!-- build:js -->
+	<script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../node_modules/bootstrap-slider/dist/bootstrap-slider.js"></script>
+	<script type="text/javascript" src="../node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+
+	<script type="text/javascript" src="../node_modules/highcharts/highcharts.js"></script>
+	<script type="text/javascript" src="../node_modules/highcharts/modules/map.js"></script>
+	<!-- endbuild-->
+	
+
+	<script type="text/javascript">
+		
+        Highcharts.chart('pie-chart', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Ratings'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                name: 'share',
+                colorByPoint: true,
+                data: [{
+                    name: '5 Stars',
+                    y: 56.33
+                }, {
+                    name: '4 Stars',
+                    y: 24.03,
+                    sliced: true,
+                    selected: true
+                }, {
+                    name: '3 Stars',
+                    y: 10.38
+                }, {
+                    name: '2 Stars',
+                    y: 4.77
+                }, {
+                    name: '1 Stars',
+                    y: 0.93
+                }]
+            }],
+            credits : {
+                enabled: false
+            }
+        });
+
+
+
+$(document).ready(function() {
+});
+
+	</script>
+
+</body>
+</html>
