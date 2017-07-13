@@ -10,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="./css/styles.css">
 	<!-- endbuild -->
 
-    <!-- build:js -->
+    <!-- build:jsv-->
     <script type="text/javascript" src="../node_modules/angular/angular.js"></script>
     <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
@@ -19,6 +19,7 @@
 
     <script type="text/javascript" src="../node_modules/highcharts/highcharts.js"></script>
     <script type="text/javascript" src="../node_modules/highcharts/modules/map.js"></script>
+    <script type="text/javascript" src="../node_modules/ngmap/build/scripts/ng-map.js"></script>
     <!-- endbuild-->
 
     <!-- build:angular -->
@@ -27,6 +28,7 @@
     <script type="text/javascript" src="./js/services.js"></script>
     <script type="text/javascript" src="./js/directives.js"></script>
     <!-- endbuild -->
+    
 </head>
 <body>
 	<nav class="navbar navbar-default nav-dark" data-spy="affix" data-offset-top="60">
@@ -63,7 +65,7 @@
 
 	
 
-    <div class="container" ng-controller="dashboardController" ng-init="init('NDMC', true)">
+    <div class="container" ng-controller="dashboardController" ng-init="init('NDMC', true)" ng-cloak>
     	<div class="row">
     		<div class="col-xs-12 col-md-6 col-md-offset-3 select-area">
                 <div class="dropdown">

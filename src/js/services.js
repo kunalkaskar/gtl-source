@@ -10,12 +10,19 @@ app
                 locationName : null,
                 ulbName : null,
                 sDate : null,
-                eDate : null
+                eDate : null,
+                download: false
             }
             angular.extend(filters, options);
+            var endPoint;
+            if(filters.download){
+                endPoint = "download-report-of-locations";
+            }else {
+                endPoint = "get-report-of-locations";
+            }
         return $http({
             method:'GET',
-            url : baseURL+"get-report-of-locations/"+filters.minRating+"/"+filters.maxRating+"/"+pageNumber+"/"+filters.pageSize,
+            url : baseURL+endPoint+"/"+filters.minRating+"/"+filters.maxRating+"/"+pageNumber+"/"+filters.pageSize,
             params : {
                 locationType: filters.locationName,
                 startDate : filters.sDate,
@@ -30,11 +37,13 @@ app
         });
     }
 
-    this.getNumbers = function(ulbName) {
+    this.getNumbers = function(ulbName, isAdmin) {
         var ulb = ulbName || null;
+
+        var url = isAdmin ? baseURL +'admin/get-dashboard' :baseURL +'get-dashboard';
         return $http({
             method:'GET',
-            url : baseURL +'get-dashboard',
+            url : url,
             params: {
                 ulbName : ulb
             }
@@ -71,9 +80,24 @@ app
         });
     };
 
+    this.downloadReport = function(filters) {
+        var ulb = ulbName || null;
+        return $http({
+            method: 'GET',
+            url : baseURL+'admin/get-dashboard', 
+            params : {
+                ulbName : ulb
+            }
+        })
+        .then(function(response) {
+            return response;
+        }, function(error) {
+            console.log(error);
+        });
+    };
 }])
 .service('MapService', [function() {
-    this.drawMap = function() {
+    this.drawMap = function(callBack) {
         var data = Highcharts.geojson(Highcharts.maps['countries/in/custom/in-all-disputed']);
         
         // Instanciate the map
@@ -132,26 +156,18 @@ app
                             "radius": 3
                         },
                     data: [
-                        {"name":'NDMC- North Delhi Municipal Corporation',"x":500, "y":-700, "total": 500, "star5": 445, "star3":342},
-                        {"name":'EDMC- East Delhi Municipal Corporation', "x":900, "y":-500, "total": 500, "star5": 445, "star3":342},
-                        {"name":'SDMC- South Delhi Municipal Corporation', "x":700, "y":-250, "total": 500, "star5": 445, "star3":342},
-                        {"name":'NDMC- New Delhi Municipal Council', "x":800, "y":-350, "total": 500, "star5": 445, "star3":342},
-                        {"name":'Delhi Cantonment', "x":500, "y":-300, "total": 500, "star5": 445, "star3":342},
-                        {"name":'Faridabad', "x":900, "y":-50, "total": 500, "star5": 445, "star3":342},
-                        {"name":'Ghaziabad/Noida', "x":1000, "y":-550, "total": 500, "star5": 445, "star3":342},
-                        {"name":'Gurugram', "x":310, "y":-50, "total": 500, "star5": 445, "star3":342}
+                        {"name":'NDMC- North Delhi Municipal Corporation',"x":500, "y":-700, "total": 500, "star5": 445, "star3":342, 'ulbName': 'North DMC'},
+                        {"name":'EDMC- East Delhi Municipal Corporation', "x":900, "y":-500, "total": 500, "star5": 445, "star3":342, 'ulbName': 'EDMC'},
+                        {"name":'SDMC- South Delhi Municipal Corporation', "x":700, "y":-250, "total": 500, "star5": 445, "star3":342, 'ulbName': 'SDMC'},
+                        {"name":'NDMC- New Delhi Municipal Council', "x":800, "y":-350, "total": 500, "star5": 445, "star3":342, 'ulbName': 'NDMC'},
+                        {"name":'Delhi Cantonment', "x":500, "y":-300, "total": 500, "star5": 445, "star3":342, 'ulbName': 'DC'},
+                        {"name":'Faridabad', "x":900, "y":-50, "total": 500, "star5": 445, "star3":342, 'ulbName': 'NDMC'},
+                        {"name":'Ghaziabad/Noida', "x":1000, "y":-550, "total": 500, "star5": 445, "star3":342, 'ulbName': 'NDMC'},
+                        {"name":'Gurugram', "x":310, "y":-50, "total": 500, "star5": 445, "star3":342, 'ulbName': 'MCG'}
                         ],
                    events : {
                     click : function(e) {
-                        if(e.point.name.match('-')){
-                            var areaName = e.point.name.split('-')[0];
-                        }else {
-                            var areaName = e.point.name;
-                        }
-                        $('#area-name').text(areaName);
-                        $('#total-star').counter({end:e.point.total});
-                        $('#star-5').counter({end:e.point.star5});
-                        $('#star-3').counter({end:e.point.star3});
+                        callBack(e.point.ulbName, true)
                     }
                    }
             }
@@ -164,6 +180,7 @@ app
 }])
 .service('ChartService', [function() {
     this.getPieChart = function(data) {
+        console.log(data);
         return Highcharts.chart('pie-chart', {
             chart: {
                 plotBackgroundColor: null,
@@ -195,21 +212,21 @@ app
                 colorByPoint: true,
                 data: [{
                             name: '5 Stars',
-                            y: 56.33
-                        }, {
-                            name: '4 Stars',
-                            y: 24.03,
+                            y: data[5],
                             sliced: true,
                             selected: true
                         }, {
+                            name: '4 Stars',
+                            y: data[4]
+                        }, {
                             name: '3 Stars',
-                            y: 10.38
+                            y: data[3]
                         }, {
                             name: '2 Stars',
-                            y: 4.77
+                            y: data[2]
                         }, {
                             name: '1 Stars',
-                            y: 0.93
+                            y: data[1]
                         }]
             }],
             credits : {

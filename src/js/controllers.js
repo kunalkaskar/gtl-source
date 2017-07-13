@@ -1,4 +1,4 @@
-app.controller('dashboardController', ['$scope', 'DashboardService', '$filter', 'MapService', 'ChartService', function ($scope, DashboardService, $filter, MapService, ChartService) {
+app.controller('dashboardController', ['$scope', 'DashboardService', '$filter', 'MapService', 'ChartService', 'baseURL','NgMap','$timeout', function ($scope, DashboardService, $filter, MapService, ChartService, baseURL, NgMap, $timeout) {
     $scope.locationData;
     $scope.currentPage = 1;
     $scope.totalPages = 496;
@@ -7,11 +7,27 @@ app.controller('dashboardController', ['$scope', 'DashboardService', '$filter', 
 
     $scope.showDetails = false;
 
+    $scope.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyD304cZovgQsVQt2vaAILBdD3bD5pFHcx0";
+    $scope.ulbCords = {
+        "NorthDMC": [28.6579034, 77.18296599999999],
+        "EDMC": [28.6387104, 77.30824489999999],
+        "SDMC": [28.5730519, 77.17353390000001],
+        "NDMC": [28.6281286, 77.2155348],
+        "DC": [28.628716, 77.162609],
+        "MCG": [28.4594965, 77.0266383]
+
+    }
+    $scope.markerPosition = [28.7040592, 77.10249019999999];
+    $scope.gmap = false;
+
+    $scope.latcenter = 28.7040592;
+    $scope.longcenter = 77.10249019999999;
+
     $scope.filterModel = {
         ratings : [0, 5],
         min : 0,
         max : 5,
-        ward : $scope.selectedUlb ? $scope.selectedUlb : '',
+        ward : $scope.selectedUlb != 'All Wards' ? $scope.selectedUlb : '',
         type : '',
         period: '',
         fromDate : '',
@@ -29,15 +45,38 @@ app.controller('dashboardController', ['$scope', 'DashboardService', '$filter', 
             $scope.totalPages = Math.ceil($scope.metaData.noOfElements/10);
             $scope.locationData = JSON.parse($scope.metaData.content);
             $scope.pages = $scope.getPages(pageNumber, $scope.totalPages);
-            console.log(result);
+            console.log(result.data);
         });
     };
 
-    $scope.getNumbers = function(ulbName) {
+    $scope.getNumbers = function(ulbName, showMap) {
         console.log(ulbName);
-        //if(!$scope.dashboardNumbers){
-    	   DashboardService.getNumbers(ulbName).then(function(result) {
-    		console.log(result.data);
+        //if(!$scope.isAdmin){
+            if(showMap){
+                $scope.gmap = showMap;
+                $scope.arrayUlbName = ulbName.replace(/[\s]/g, '');
+                $scope.selectedCenter = $scope.ulbCords[$scope.arrayUlbName];
+                
+                NgMap.getMap().then(function(map) {
+                    /*console.log(map.getCenter());
+                    console.log('markers', map.markers);
+                    console.log('shapes', map.shapes);*/
+                  
+                    //var center = {lat:$scope.latcenter, lng: $scope.longcenter};
+                    //console.log(center);
+                    $timeout(function() {
+                        google.maps.event.trigger(map, "resize");
+                        $scope.latcenter = $scope.selectedCenter[0];
+                        $scope.longcenter = $scope.selectedCenter[1];
+                        $scope.$apply();
+                    }, 500)
+                    
+                     
+                     //map.setCenter(center);
+                 });
+            }
+    	   DashboardService.getNumbers(ulbName, $scope.isAdmin).then(function(result) {
+    		
         		$scope.dashboardNumbers = result.data;
                 $scope.totalToilets = {
                     myValue : 0,
@@ -45,7 +84,7 @@ app.controller('dashboardController', ['$scope', 'DashboardService', '$filter', 
                     myDuration : 2000,
                     myEffect : 'linear'
                 }
-                console.log(parseInt($scope.dashboardNumbers.totalToilets));
+                //console.log(parseInt($scope.dashboardNumbers.totalToilets));
 
                 $scope.fiveStarsRated = {
                     myValue : 0,
@@ -63,16 +102,28 @@ app.controller('dashboardController', ['$scope', 'DashboardService', '$filter', 
             
         		$scope.ulbList = JSON.parse($scope.dashboardNumbers.ulbsList);
                 $scope.selectedUlbIndex = $scope.ulbList.indexOf(ulbName);
-                $scope.selectedUlb = $scope.ulbList[$scope.selectedUlbIndex];
-                console.log($scope.selectedUlb);
+                $scope.selectedUlb = $scope.selectedUlbIndex != -1 ? $scope.ulbList[$scope.selectedUlbIndex] : 'All Wards';
+                //console.log($scope.selectedUlb);
         		$scope.locationTypes = JSON.parse($scope.dashboardNumbers.locationTypes);
                 $scope.filters = {
                     ulbName : ulbName ? ulbName : null
                 }
-                $scope.filterModel.ward = ulbName ? ulbName : ''
+                $scope.filterModel.ward = ulbName ? ulbName : null
                 $scope.getData(1);
-        	});
 
+                if($scope.isAdmin){
+                    $scope.ratingDistribution = JSON.parse(result.data.ratingDistribution);
+                    $scope.fiveStar = JSON.parse($scope.ratingDistribution.fiveStar);
+                    $scope.fourStar = JSON.parse($scope.ratingDistribution.fourStar);
+                    $scope.threeStar = JSON.parse($scope.ratingDistribution.threeStar);
+                    $scope.twoStar = JSON.parse($scope.ratingDistribution.twoStar);
+                    $scope.oneStar = JSON.parse($scope.ratingDistribution.oneStar);
+                    $scope.noFeedBack = JSON.parse($scope.ratingDistribution.noFeedBack);
+                    //$scope.ratingDistribution = JSON.parse($scope.ratingDistribution);
+                    console.log($scope.ratingDistribution);   
+                }
+        	});
+        //}
         
     };
 
@@ -87,7 +138,7 @@ app.controller('dashboardController', ['$scope', 'DashboardService', '$filter', 
             startPage = 1;
             endPage = 10;
         } else if (current + 4 >= totalPages) {
-        	console.log('else if')
+        	//console.log('else if')
             startPage = totalPages - 9;
             endPage = totalPages;
         } else {
@@ -120,43 +171,73 @@ app.controller('dashboardController', ['$scope', 'DashboardService', '$filter', 
     $scope.lastWeek = date1.setDate(date1.getDate() - 6);
     var date2 = new Date();
     
-    $scope.lastMonth = date2.setDate(date2.getDate() - 30)
+    $scope.lastMonth = date2.setDate(date2.getDate() - 30);
+    var date3 = new Date();
+    
+    $scope.last2Week = date2.setDate(date3.getDate() - 13);
     $scope.dateRange = {
     		today : [$scope.today, $scope.today],
     		yesterday : [$scope.yesterday, $scope.yesterday],
     		lastWeek : [$scope.today, $scope.lastWeek],
+            last2Weeks : [$scope.today, $scope.last2Week],
     		lastMonth : [$scope.today, $scope.lastMonth]
     };
 
     
 
     $scope.changePeriod = function(value) {
-    	if(value != 'custom'){
-	    	$scope.filterModel.fromDate = $filter('date')($scope.dateRange[value][0], 'dd-MM-yyyy');
-	    	$scope.filterModel.toDate = $filter('date')($scope.dateRange[value][1], 'dd-MM-yyyy');
+    	if(value != 'custom' && value != ''){
+	    	$scope.filterModel.fromDate = $filter('date')($scope.dateRange[value][1], 'dd-MM-yyyy');
+	    	$scope.filterModel.toDate = $filter('date')($scope.dateRange[value][0], 'dd-MM-yyyy');
     	}
+
+        if(value == ''){
+            $scope.filterModel.fromDate = '';
+            $scope.filterModel.toDate = '';
+        }
     };
 
     $scope.filterModelCopy = angular.copy($scope.filterModel);
-    $scope.filterData = function(formData) {
+    $scope.filterData = function(formData, download) {
     	//console.log(formData);
+        var isDownload = download ? download : false;
 
+        console.log($scope.filterModel.ward);
     	$scope.filters = {
             page : 1,
             minRating : $scope.filterModel.ratings != '' ? $scope.filterModel.ratings[0] : 0,
             maxRating : $scope.filterModel.ratings != '' ? $scope.filterModel.ratings[1] : 5,
             locationName : $scope.filterModel.type != '' ? $scope.filterModel.type : null,
-            ulbName : $scope.filterModel.ward != '' ? $scope.filterModel.ward : null,
+            ulbName : ($scope.filterModel.ward != 'All Wards' || $scope.filterModel.ward != '') ? $scope.filterModel.ward : null,
             sDate : $scope.filterModel.fromDate != '' ? $scope.filterModel.fromDate : null,
-            eDate : $scope.filterModel.toDate != '' ? $scope.filterModel.toDate : null
+            eDate : $scope.filterModel.toDate != '' ? $scope.filterModel.toDate : null,
+            download : isDownload
         }
     	console.log($scope.filters);
+        if(isDownload){
+            $scope.downloadReport();
+            return;
+        }
     	$scope.getData(1);
     };
 
+
+    $scope.setFilters = function(rating, period) {
+
+            $scope.filterModel.ratings = [rating, rating],
+            $scope.filterModel.period = period == 'last2Weeks' ? 'custom' : period;
+         $scope.changePeriod(period);
+        $scope.filterData(null, false);
+
+    }
+
+    $scope.downloadReport = function(pageNumber) {
+        window.open(baseURL+"download-report-of-locations/"+$scope.filters.minRating+"/"+$scope.filters.maxRating+"/"+$scope.filters.page+"/10/?locationType="+$scope.filters.locationName+"&startDate="+$scope.filters.sDate+"&endDate="+$scope.filters.eDate+"&ulbName="+$scope.filters.ulbName);
+    }
+
     $scope.clearFilters = function() {
         $scope.filterModel = $scope.filterModelCopy;
-        console.log($scope.filterModel);
+        //console.log($scope.filterModel);
     };
 
     $scope.getReviews = function(id, page, size, showModal) {
@@ -165,24 +246,25 @@ app.controller('dashboardController', ['$scope', 'DashboardService', '$filter', 
         }
     	DashboardService.getReviews(id, page, size ).then(function(result) {
     		$scope.reviews = JSON.parse(result.data.content);
-    		console.log($scope.reviews);
+    		//console.log($scope.reviews);
     	})
         
     };
 
     $scope.showToiletDetails = function(data) {
-        console.log(data);
+        //console.log(data);
         $scope.toiletDetail = data;
 
         $scope.showDetails = true;
         $("[href='#oRatings']").tab('show');
         $scope.getReviews(data.location.id, 0, 5, true);
-        ChartService.getPieChart();
+        
         if($scope.isAdmin){
             DashboardService.getRatingData($scope.toiletDetail.location.id).then(function(result) {
-                //console.log(result);
+                console.log(result);
 
                 var graphData = JSON.parse(result.data.content);
+                var pieData = JSON.parse(result.data.overall);
                 //console.log(graphData[0]);
                 var dates = [];
                 var values = [];
@@ -208,8 +290,9 @@ app.controller('dashboardController', ['$scope', 'DashboardService', '$filter', 
                     values.push(val);
                 });
 
-                console.log(dates);
+                //console.log(dates);
                 ChartService.getBarGraph(dates, values);
+                ChartService.getPieChart(pieData);
             });
         }
     };
@@ -221,7 +304,8 @@ app.controller('dashboardController', ['$scope', 'DashboardService', '$filter', 
         $scope.isAdmin = true;
     	$scope.getNumbers(ulbName);
         if(!ulbName){
-            MapService.drawMap();
+            MapService.drawMap($scope.getNumbers, $scope.gmap);
+            
         }
     };
 

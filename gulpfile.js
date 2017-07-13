@@ -20,7 +20,8 @@ var js = [
 			'./node_modules/bootstrap-slider/dist/bootstrap-slider.js',
 			'./node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js',
 			'./node_modules/highcharts/highcharts.js',
-			'./node_modules/highcharts/modules/map.js'
+			'./node_modules/highcharts/modules/map.js',
+			'./node_modules/ngmap/build/scripts/ng-map.js'
 ];
 
 var angularFiles = [

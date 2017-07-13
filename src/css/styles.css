@@ -68,7 +68,7 @@ body {
   .nav-dark .navbar-nav .dropdown .dropdown-menu {
     background-color: #292929; }
 
-#map {
+#map, #map1 {
   height: 500px; }
 
 .panel {
